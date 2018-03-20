@@ -1,23 +1,30 @@
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 
-#define MOTOR_COUNT 4
+#define MOTOR_COUNT 2
 #define FL 0
 #define FR 1
 #define BR 2
 #define BL 3
 
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+Adafruit_MotorShield AFMSbot(0x61); // Rightmost jumper closed
+Adafruit_MotorShield AFMStop(0x60); // Default address, no jumpers
 Adafruit_DCMotor *motors[MOTOR_COUNT];
 
 void setup() {
 
-  AFMS.begin();  // create with the default frequency 1.6KHz
+  AFMSbot.begin();  // create with the default frequency 1.6KHz
+   AFMStop.begin();  // create with the default frequency 1.6KHz
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
+
+
+
+   motors[0] = AFMStop.getMotor(1);
+    motors[1] = AFMSbot.getMotor(1);
   
   for (int i = 0; i < MOTOR_COUNT; i++)
   {
-    motors[i] = AFMS.getMotor(i+1);
+   
     motors[i]->run(RELEASE);
   }
   pinMode(2, INPUT_PULLUP);
@@ -57,6 +64,19 @@ int cmi =0;
 
 void loop() 
 {
+ int speed; 
+  if(!digitalRead(2))
+    speed = 255;
+  else
+    speed = -255;
+
+  set_speed(motors[FL], -speed, 0);
+  set_speed(motors[FR], speed, 0);
+
+}
+
+void lr() 
+{
   cmi %= MOTOR_COUNT;
   int speed; 
   if(!digitalRead(2))
@@ -68,5 +88,22 @@ void loop()
   set_speed(motors[FR], speed, 0);
   set_speed(motors[BL], -speed, 0);
   set_speed(motors[BR], -speed, 0);
+
+}
+
+
+void fb() 
+{
+  cmi %= MOTOR_COUNT;
+  int speed; 
+  if(!digitalRead(2))
+    speed = 255;
+  else
+    speed = -255;
+
+  set_speed(motors[FL], speed, 0);
+  set_speed(motors[FR], speed, 0);
+  set_speed(motors[BL], -speed, 0);
+  set_speed(motors[BR], speed, 0);
 
 }
