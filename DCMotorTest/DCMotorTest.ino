@@ -7,23 +7,13 @@
 #warning "fakedrive is on"
 #endif
 
-#define SWITCH_BACK 2
-
-int testForPress(int pin, int* docontinue)
-{
-    while (docontinue && *docontinue)
-    {
-        if(digitalRead(pin) == LOW)
-            return 0;
-    }
-    return 1;
-}
+#include "switch.h"
 
 void setup() 
 {   
-    pinMode(2, INPUT_PULLUP);
     pinMode(LED_BUILTIN, OUTPUT);
     motor_setup();
+    switch_setup();
 }
 
 void loop()
@@ -32,7 +22,7 @@ void loop()
     go_stop();
     delay(1000);
     go_south();
-    if (!testForPress(SWITCH_BACK,&emergency))
+    if(test_switch_south(10000) == SUCCESS)
         go_stop();
     delay(15000);
 }

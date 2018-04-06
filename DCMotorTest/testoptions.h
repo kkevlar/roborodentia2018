@@ -1,1 +1,2 @@
 #define FAKEDRIVE
+// #define FAKESWITCH
