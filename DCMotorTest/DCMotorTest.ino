@@ -1,8 +1,10 @@
+#include "testoptions.h"
 
 #ifndef FAKEDRIVE
 #include "drive.h"
 #else
 #include "fakedrive.h"
+#warning "fakedrive is on"
 #endif
 
 #define SWITCH_BACK 2
@@ -27,10 +29,10 @@ void setup()
 void loop()
 {
     int emergency = 1;
-    stop();
+    go_stop();
     delay(1000);
-    go_back();
+    go_south();
     if (!testForPress(SWITCH_BACK,&emergency))
-        stop();
+        go_stop();
     delay(15000);
 }

@@ -1,9 +1,8 @@
+#include "testoptions.h"
+
 #ifndef FAKEDRIVE_H
 #define FAKEDRIVE_H
 
-void motor_setup(void);
-void go_north();
-void go_south();
-void stop();
+#include "drivefuncs.h"
 
 #endif
