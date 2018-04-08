@@ -3,18 +3,18 @@
 #ifndef FAKEDRIVE
 #include "drive.h"
 
-Adafruit_MotorShield AFMS_BOT(ADDR_TOP); // Rightmost jumper closed
-Adafruit_MotorShield AFMS_TOP(ADDR_BOT); // Default address, no jumpers
+Adafruit_MotorShield AFMS_BOT(ADDR_BOT); // Rightmost jumper closed
+// Adafruit_MotorShield AFMS_TOP(ADDR_TOP); // Default address, no jumpers
 
 Adafruit_DCMotor *nw;
 Adafruit_DCMotor *ne;
 Adafruit_DCMotor *sw;
 Adafruit_DCMotor *se;
 
-void motor_setup(void)
+void drive_setup(void)
 {
     AFMS_BOT.begin();  // create with the default frequency 1.6KHz
-    AFMS_TOP.begin();  // create with the default frequency 1.6KHz
+    // AFMS_TOP.begin();  // create with the default frequency 1.6KHz
     //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
     // motors[1] = AFMS_TOP.getMotor(1);
 

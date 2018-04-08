@@ -22,7 +22,7 @@ void setup()
     
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
-    motor_setup();
+    drive_setup();
     switch_setup();
     delay(1000);
     #ifndef MOTOR_TEST

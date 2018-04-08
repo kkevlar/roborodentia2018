@@ -7,11 +7,8 @@
 
 #include "wiring.h"
 
-#define ADDR_BOT 0x61
-#define ADDR_TOP 0x60
-
 //#include "drivefuncs.h"
-void motor_setup(void);
+void drive_setup(void);
 void go_north(void);
 void go_south(void);
 void go_south_west(void);

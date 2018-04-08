@@ -1,5 +1,5 @@
 #include "testoptions.h"
-//void motor_setup(void);
+//void drive_setup(void);
 //void go_north();
 //void go_south();
 //void go_south_west();
