@@ -4,7 +4,7 @@
 #define FAKEDRIVE_H
 
 //#include "drivefuncs.h"
-void motor_setup(void);
+void drive_setup(void);
 void go_north(void);
 void go_south(void);
 void go_south_west(void);

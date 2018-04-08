@@ -13,6 +13,9 @@
 void panic()
 {
     digitalWrite(LED_BUILTIN, HIGH);
+    go_stop();
+    for (int i = 0; i < 100; i++)
+    delay(1000);
 }
 
 void setup() 
@@ -41,6 +44,8 @@ void setup()
     
 }
 
+#define PANIC_WAIT_TIME 30000
+
 void loop()
 {
     #ifdef MOTOR_TEST
@@ -58,30 +63,30 @@ void loop()
 
     #else
         go_east();
-        if(test_switch_east(10000) != SUCCESS)
+        if(test_switch_east(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_south_east();
-        if(test_switch_south(10000) != SUCCESS)
+        if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_north_west();
-        if(test_switch_north(10000) != SUCCESS)
+        if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_west();
-        if(test_switch_west(10000) != SUCCESS)
+        if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_south_west();
         #ifndef FAKEDRIVE
-          simple_shoot();
+//          simple_shoot();
         #endif
-        if(test_switch_south(10000) != SUCCESS)
+        if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_north_east();
-        if(test_switch_north(10000) != SUCCESS)
+        if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         delay(2000);

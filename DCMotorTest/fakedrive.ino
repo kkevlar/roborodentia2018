@@ -3,7 +3,7 @@
 #ifdef FAKEDRIVE
 #include "fakedrive.h"
 
-void motor_setup(void)
+void drive_setup(void)
 {
     Serial.begin(9600);
     pinMode(LED_BUILTIN,OUTPUT);

@@ -31,10 +31,11 @@ int test_switch_arbitrary(long breaktime, int pincount, int* pins)
 
     while (millis() - starttime < breaktime)
     {
+        result = 1;
         for(i = 0; i < pincount; i++)
         {
-            test[i] |= digitalRead(pins[i]) == LOW;
-            result |= test[i];
+            test[i] = (digitalRead(pins[i]) == LOW || test[i]);
+            result = (test[i] && result);
         }
         if(result)
             return SUCCESS;
@@ -60,8 +61,8 @@ int test_switch_east(long breaktime)
 }
 int test_switch_west(long breaktime)
 {
-    pins[0] = SWITCH_PIN_EAST_NORTH;
-    pins[1] = SWITCH_PIN_EAST_SOUTH;
+    pins[0] = SWITCH_PIN_WEST_NORTH;
+    pins[1] = SWITCH_PIN_WEST_SOUTH;
     return test_switch_arbitrary(breaktime, 2, pins);
 }
 
