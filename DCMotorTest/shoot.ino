@@ -1,7 +1,6 @@
 #include "testoptions.h"
 
 #ifndef FAKEDRIVE
-#include "drive.h"
 
 // Adafruit_MotorShield AFMS_BOT(ADDR_BOT); // Rightmost jumper closed
 Adafruit_MotorShield AFMS_TOP(ADDR_TOP); // Default address, no jumpers
@@ -9,7 +8,7 @@ Adafruit_MotorShield AFMS_TOP(ADDR_TOP); // Default address, no jumpers
 Adafruit_DCMotor *motor_flywheel;
 Adafruit_DCMotor *motor_indexer;
 
-void drive_setup(void)
+void shoot_setup(void)
 {
     // AFMS_BOT.begin();  // create with the default frequency 1.6KHz
     AFMS_TOP.begin();  // create with the default frequency 1.6KHz

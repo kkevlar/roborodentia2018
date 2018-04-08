@@ -2,6 +2,7 @@
 
 #ifndef FAKEDRIVE
 #include "drive.h"
+#include "shoot.h"
 #else
 #include "fakedrive.h"
 #warning "fakedrive is on"
@@ -24,6 +25,9 @@ void setup()
     digitalWrite(LED_BUILTIN, LOW);
     drive_setup();
     switch_setup();
+    #ifndef FAKEDRIVE
+      shoot_setup();
+    #endif
     delay(1000);
     #ifndef MOTOR_TEST
     go_stop();
@@ -70,6 +74,9 @@ void loop()
             panic();
         go_stop();
         go_south_west();
+        #ifndef FAKEDRIVE
+          simple_shoot();
+        #endif
         if(test_switch_south(10000) != SUCCESS)
             panic();
         go_stop();

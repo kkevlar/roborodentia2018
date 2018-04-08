@@ -9,8 +9,8 @@
 #define BOT_PORT_SW 2
 #define BOT_PORT_SE 3
 
-#define TOP_PORT_FLYWHEEL 1
-#define TOP_PORT_INDEXER 2
+#define TOP_PORT_FLYWHEEL 4
+#define TOP_PORT_INDEXER 1
 
 #define OFFSET_NW -1
 #define OFFSET_NE 1
