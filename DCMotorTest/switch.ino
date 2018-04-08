@@ -4,20 +4,39 @@
 #include "switch.h"
 #include "wiring.h"
 
+int pins[TOTAL_SWITCH_COUNT];
+
 void switch_setup(void)
 {
     pinMode(SWITCH_PIN_SOUTH, INPUT_PULLUP);
     pinMode(SWITCH_PIN_NORTH, INPUT_PULLUP);
-    pinMode(SWITCH_PIN_EAST, INPUT_PULLUP);
-    pinMode(SWITCH_PIN_WEST, INPUT_PULLUP);
+    pinMode(SWITCH_PIN_EAST_NORTH, INPUT_PULLUP);
+    pinMode(SWITCH_PIN_EAST_SOUTH, INPUT_PULLUP);
+    pinMode(SWITCH_PIN_WEST_NORTH, INPUT_PULLUP);
+    pinMode(SWITCH_PIN_WEST_SOUTH, INPUT_PULLUP);
 }
 
-int test_switch_arbitrary(long breaktime, int pin)
+int test_switch_arbitrary(long breaktime, int pincount, int* pins)
 {
-	long starttime = millis();
-	while (millis() - starttime < breaktime)
+    int test[TOTAL_SWITCH_COUNT];
+    int result = 1;
+    int i;
+
+    for(i = 0; i < pincount; i++)
     {
-        if(digitalRead(pin) == LOW)
+        test[i] = 0;
+    }
+
+    long starttime = millis();
+
+    while (millis() - starttime < breaktime)
+    {
+        for(i = 0; i < pincount; i++)
+        {
+            test[i] |= digitalRead(pins[i]) == LOW;
+            result |= test[i];
+        }
+        if(result)
             return SUCCESS;
     }
     return FAILURE;
@@ -25,19 +44,25 @@ int test_switch_arbitrary(long breaktime, int pin)
 
 int test_switch_south(long breaktime)
 {
-	return test_switch_arbitrary(breaktime, SWITCH_PIN_SOUTH);
+    pins[0] = SWITCH_PIN_SOUTH;
+    return test_switch_arbitrary(breaktime, 1, pins);
 }
 int test_switch_north(long breaktime)
 {
-	return test_switch_arbitrary(breaktime, SWITCH_PIN_NORTH);
+    pins[0] = SWITCH_PIN_NORTH;
+    return test_switch_arbitrary(breaktime, 1, pins);
 }
 int test_switch_east(long breaktime)
 {
-	return test_switch_arbitrary(breaktime, SWITCH_PIN_EAST);
+    pins[0] = SWITCH_PIN_EAST_NORTH;
+    pins[1] = SWITCH_PIN_EAST_SOUTH;
+    return test_switch_arbitrary(breaktime, 2, pins);
 }
 int test_switch_west(long breaktime)
 {
-	return test_switch_arbitrary(breaktime, SWITCH_PIN_WEST);
+    pins[0] = SWITCH_PIN_EAST_NORTH;
+    pins[1] = SWITCH_PIN_EAST_SOUTH;
+    return test_switch_arbitrary(breaktime, 2, pins);
 }
 
 #endif
