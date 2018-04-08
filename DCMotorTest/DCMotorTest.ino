@@ -41,8 +41,8 @@ void loop()
 {
     #ifdef MOTOR_TEST
         Serial.println("lmao");
-        delay(1000);
-        go_stop();
+//        delay(1000);
+//        go_stop();
         delay(500);
         go_north();
         delay(500);
