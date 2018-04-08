@@ -77,31 +77,60 @@ void go_stop()
 
 void go_south(void)
 {
-  
+    int speed = 255;
+    set_speed(nw, OFFSET_NW * -speed, 0);
+    set_speed(ne, OFFSET_NE * -speed, 0);
+    set_speed(sw, OFFSET_SW * speed, 0);
+    set_speed(se, OFFSET_SE * speed, 0);
 }
 void go_south_west(void)
 {
-  
+    int speed = 255;
+    set_speed(nw, OFFSET_NW * -speed, 0);
+    set_speed(ne, OFFSET_NE * -speed * .5, 0);
+    set_speed(sw, OFFSET_SW * speed * .5, 0);
+    set_speed(se, OFFSET_SE * speed, 0);
 }
 void go_south_east(void)
 {
-  
+    int speed = 255;
+    set_speed(nw, OFFSET_NW * -speed *.5, 0);
+    set_speed(ne, OFFSET_NE * -speed, 0);
+    set_speed(sw, OFFSET_SW * speed, 0);
+    set_speed(se, OFFSET_SE * speed * .5, 0);
 }
-void go_east(void){
-  
+void go_east(void)
+{
+    int speed = 255;
+    set_speed(nw, OFFSET_NW * -speed, 0);
+    set_speed(ne, OFFSET_NE * speed, 0);
+    set_speed(sw, OFFSET_SW * -speed, 0);
+    set_speed(se, OFFSET_SE * speed, 0);  
 }
 
 void go_west(void)
 {
-  
+  int speed = 255;
+  set_speed(nw, OFFSET_NW * speed, 0);
+  set_speed(ne, OFFSET_NE * -speed, 0);
+  set_speed(sw, OFFSET_SW * speed, 0);
+  set_speed(se, OFFSET_SE * -speed, 0);
 }
 void go_north_west(void)
 {
-  
+  int speed = 255;
+  set_speed(nw, OFFSET_NW * speed, 0);
+  set_speed(ne, OFFSET_NE * -speed, 0);
+  set_speed(sw, OFFSET_SW * -speed, 0);
+  set_speed(se, OFFSET_SE * speed, 0);
 }
 void go_north_east(void)
 {
-  
+  int speed = 255;
+  set_speed(nw, OFFSET_NW * -speed, 0);
+  set_speed(ne, OFFSET_NE * speed, 0);
+  set_speed(sw, OFFSET_SW * speed, 0);
+  set_speed(se, OFFSET_SE * -speed, 0);
 }
 
 

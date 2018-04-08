@@ -45,12 +45,12 @@ void loop()
         go_stop();
         delay(500);
         go_north();
-        // delay(500);
-        // go_east();
-        // delay(500);        
-        // go_south();        
-        // delay(500);
-        // go_west();
+        delay(500);
+        go_east();
+        delay(500);        
+        go_south();        
+        delay(500);
+        go_west();
 
     #else
         go_east();
