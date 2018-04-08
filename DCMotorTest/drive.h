@@ -7,6 +7,8 @@
 
 #include "wiring.h"
 
+#define HUG_CONSTANT .5
+
 //#include "drivefuncs.h"
 void drive_setup(void);
 void go_north(void);
