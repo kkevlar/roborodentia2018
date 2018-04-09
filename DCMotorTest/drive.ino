@@ -59,7 +59,7 @@ void set_speed(Adafruit_DCMotor* motor, int speed, int time)
 
 void go_north() 
 {
-    int speed = 255;
+    int speed = (int) (255.0 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * speed, 0);
     set_speed(ne, OFFSET_NE * speed, 0);
     set_speed(sw, OFFSET_SW * -speed, 0);
@@ -77,7 +77,7 @@ void go_stop()
 
 void go_south(void)
 {
-    int speed = 255;
+    int speed = (int) (255.0 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * -speed, 0);
     set_speed(ne, OFFSET_NE * -speed, 0);
     set_speed(sw, OFFSET_SW * speed, 0);
@@ -85,7 +85,7 @@ void go_south(void)
 }
 void go_south_west(void)
 {
-    int speed = 255;
+    int speed = (int) (255.0 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * -speed, 0);
     set_speed(ne, OFFSET_NE * -speed * HUG_CONSTANT, 0);
     set_speed(sw, OFFSET_SW * speed * HUG_CONSTANT, 0);
@@ -93,7 +93,7 @@ void go_south_west(void)
 }
 void go_south_east(void)
 {
-    int speed = 255;
+    int speed = (int) (255.0 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * -speed *HUG_CONSTANT, 0);
     set_speed(ne, OFFSET_NE * -speed, 0);
     set_speed(sw, OFFSET_SW * speed, 0);
@@ -101,7 +101,7 @@ void go_south_east(void)
 }
 void go_east(void)
 {
-    int speed = 255;
+    int speed = (int) (255.0 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * speed, 0);
     set_speed(ne, OFFSET_NE * HUG_CONSTANT* -speed, 0);
     set_speed(sw, OFFSET_SW * HUG_CONSTANT* speed, 0);
@@ -110,7 +110,7 @@ void go_east(void)
 
 void go_west(void)
 {
-  int speed = 255;
+  int speed = (int) (255.0 * SPEED_CONSTANT);
   set_speed(nw, OFFSET_NW * HUG_CONSTANT * -speed, 0);
   set_speed(ne, OFFSET_NE * speed, 0);
   set_speed(sw, OFFSET_SW * -speed, 0);
@@ -118,7 +118,7 @@ void go_west(void)
 }
 void go_north_west(void)
 {
-  int speed = 255;
+  int speed = (int) (255.0 * SPEED_CONSTANT);
   set_speed(nw, OFFSET_NW * speed*DIAG_CONSTANT, 0);
   set_speed(ne, OFFSET_NE * speed, 0);
   set_speed(sw, OFFSET_SW * -speed, 0);
@@ -126,7 +126,7 @@ void go_north_west(void)
 }
 void go_north_east(void)
 {
-  int speed = 255;
+  int speed = (int) (255.0 * SPEED_CONSTANT);
   set_speed(nw, OFFSET_NW * speed, 0);
   set_speed(ne, OFFSET_NE * speed*DIAG_CONSTANT, 0);
   set_speed(sw, OFFSET_SW * -speed*DIAG_CONSTANT, 0);

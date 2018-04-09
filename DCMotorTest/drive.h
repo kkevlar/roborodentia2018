@@ -7,7 +7,8 @@
 
 #include "wiring.h"
 
-#define HUG_CONSTANT .85
+#define SPEED_CONSTANT .8
+#define HUG_CONSTANT .8
 #define DIAG_CONSTANT .4
 
 //#include "drivefuncs.h"
