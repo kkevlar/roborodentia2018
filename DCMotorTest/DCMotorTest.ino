@@ -14,8 +14,8 @@ void panic()
 {
     digitalWrite(LED_BUILTIN, HIGH);
     go_stop();
-    for (int i = 0; i < 100; i++)
-    delay(1000);
+//    for (int i = 0; i < 100; i++)
+//    delay(1000);
 }
 
 void setup() 
@@ -38,7 +38,10 @@ void setup()
     #endif
     go_stop();
     delay(1000);
-    go_north();
+    go_east_first();
+    if(test_switch_east(10000) != SUCCESS)
+        panic();
+    go_north_east();
     if(test_switch_north(10000) != SUCCESS)
         panic();
     go_stop();

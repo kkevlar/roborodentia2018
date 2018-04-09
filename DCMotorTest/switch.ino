@@ -38,7 +38,10 @@ int test_switch_arbitrary(long breaktime, int pincount, int* pins)
             result = (test[i] && result);
         }
         if(result)
+        {
+            delay(50);
             return SUCCESS;
+        }
     }
     return FAILURE;
 }
