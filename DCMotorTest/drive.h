@@ -7,7 +7,7 @@
 
 #include "wiring.h"
 
-#define HUG_CONSTANT .5
+#define HUG_CONSTANT .85
 
 //#include "drivefuncs.h"
 void drive_setup(void);

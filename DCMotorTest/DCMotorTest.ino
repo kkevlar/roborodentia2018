@@ -67,6 +67,9 @@ void loop()
             panic();
         go_stop();
         go_south_east();
+        #ifndef FAKEDRIVE
+          simple_shoot();
+        #endif
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
@@ -79,9 +82,6 @@ void loop()
             panic();
         go_stop();
         go_south_west();
-        #ifndef FAKEDRIVE
-//          simple_shoot();
-        #endif
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
