@@ -33,6 +33,9 @@ void setup()
     #endif
     delay(1000);
     #ifndef MOTOR_TEST
+    #ifdef SHOOT_TEST
+    return;
+    #endif
     go_stop();
     delay(1000);
     go_north();
@@ -62,14 +65,21 @@ void loop()
         go_west();
 
     #else
+    #ifdef SHOOT_TEST
+    go_stop();
+       #ifndef FAKEDRIVE
+          simple_shoot();
+        #endif
+
+   go_stop();
+   return;
+   #endif
         go_east();
         if(test_switch_east(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
         go_south_east();
-        #ifndef FAKEDRIVE
-          simple_shoot();
-        #endif
+        
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
@@ -89,6 +99,6 @@ void loop()
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
-        delay(2000);
+//        delay(2000);
     #endif
 }

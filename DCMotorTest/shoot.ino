@@ -24,11 +24,17 @@ void shoot_setup(void)
 
 void simple_shoot(void)
 {
-	set_speed(motor_flywheel, 255 * OFFSET_FLYWHEEL, 0);
-	set_speed(motor_indexer, 255 * OFFSET_INDEXER, 0);
-	delay(10000);
+	set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 2);
+  for (int i = 0; i < 20; i++)
+  {
+  set_speed(motor_indexer, (int) (255.0 * -OFFSET_INDEXER), 2);
+  delay(250);
+  set_speed(motor_indexer, (int) (255.0 * OFFSET_INDEXER), 2);
+  delay(500);
+  
+  }
 	set_speed(motor_flywheel, 0, 0);
-	set_speed(motor_indexer, 0, 0);
+  set_speed(motor_indexer, 0, 0);
 }
 
 

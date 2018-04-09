@@ -119,17 +119,17 @@ void go_west(void)
 void go_north_west(void)
 {
   int speed = 255;
-  set_speed(nw, OFFSET_NW * 0, 0);
+  set_speed(nw, OFFSET_NW * speed*DIAG_CONSTANT, 0);
   set_speed(ne, OFFSET_NE * speed, 0);
   set_speed(sw, OFFSET_SW * -speed, 0);
-  set_speed(se, OFFSET_SE * 0, 0);
+  set_speed(se, OFFSET_SE * -speed*DIAG_CONSTANT, 0);
 }
 void go_north_east(void)
 {
   int speed = 255;
   set_speed(nw, OFFSET_NW * speed, 0);
-  set_speed(ne, OFFSET_NE * 0, 0);
-  set_speed(sw, OFFSET_SW * 0, 0);
+  set_speed(ne, OFFSET_NE * speed*DIAG_CONSTANT, 0);
+  set_speed(sw, OFFSET_SW * -speed*DIAG_CONSTANT, 0);
   set_speed(se, OFFSET_SE * -speed, 0);
 }
 

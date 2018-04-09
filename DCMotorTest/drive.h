@@ -8,6 +8,7 @@
 #include "wiring.h"
 
 #define HUG_CONSTANT .85
+#define DIAG_CONSTANT .4
 
 //#include "drivefuncs.h"
 void drive_setup(void);
