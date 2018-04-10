@@ -11,6 +11,8 @@
 
 void shoot_setup(void);
 void simple_shoot(void);
+void shoot_spin_up(void);
+void shoot_stop(void);
 
 #endif
 #endif

@@ -9,6 +9,7 @@
 #endif
 
 #include "switch.h"
+#include "wiring.h"
 
 void panic()
 {
@@ -34,6 +35,13 @@ void setup()
     delay(1000);
     #ifndef MOTOR_TEST
     #ifdef SHOOT_TEST
+        while(1)
+        {
+            if (digitalRead(SWITCH_PIN_NORTH) == LOW)
+                shoot_spin_up();
+            else
+                shoot_stop();
+        }
     return;
     #endif
     go_stop();
