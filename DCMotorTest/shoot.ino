@@ -39,14 +39,14 @@ void simple_shoot(void)
 
 void shoot_spin_up(void)
 {
-  set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 1);
-  set_speed(motor_indexer, (int) (255.0 * OFFSET_INDEXER), 1);
+  set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 0);
+  set_speed(motor_indexer, (int) (255.0 * OFFSET_INDEXER), 0);
 }
 
 void shoot_stop(void)
 {
-  set_speed(motor_flywheel,(int) (0 * OFFSET_FLYWHEEL), 1);
-  set_speed(motor_indexer, (int) (0 * OFFSET_INDEXER), 1);
+  set_speed(motor_flywheel,(int) (0 * OFFSET_FLYWHEEL), 0);
+  set_speed(motor_indexer, (int) (0 * OFFSET_INDEXER), 0);
 }
 
 #endif
