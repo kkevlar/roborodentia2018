@@ -38,9 +38,9 @@ void setup()
         while(1)
         {
             // if (digitalRead(SWITCH_PIN_NORTH) == LOW)
-            //     shoot_spin_up();
+                shoot_spin_up();
             // else
-                shoot_stop();
+                // shoot_stop();
         }
     return;
     #endif
