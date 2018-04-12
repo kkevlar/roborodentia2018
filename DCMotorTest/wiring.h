@@ -17,8 +17,8 @@
 #define OFFSET_SW 1
 #define OFFSET_SE 1
 
-#define OFFSET_FLYWHEEL .35
-#define OFFSET_INDEXER .5
+#define OFFSET_FLYWHEEL .65
+#define OFFSET_INDEXER .40
 
 #define TOTAL_SWITCH_COUNT 6
 

@@ -45,11 +45,12 @@ void setup()
     return;
     #endif
     go_stop();
+    #warning "ass"
     delay(1000);
     go_east_first();
     if(test_switch_east(10000) != SUCCESS)
         panic();
-    go_north_east();
+    go_north_hug_east();
     if(test_switch_north(10000) != SUCCESS)
         panic();
     go_stop();
@@ -79,7 +80,7 @@ void loop()
     #ifdef SHOOT_TEST
     go_stop();
        #ifndef FAKEDRIVE
-          simple_shoot();
+//          simple_shoot();
         #endif
 
    go_stop();

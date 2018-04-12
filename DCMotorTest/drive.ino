@@ -91,6 +91,14 @@ void go_south_west(void)
     set_speed(sw, OFFSET_SW * speed * COLLECT_HUG_CONSTANT, 0);
     set_speed(se, OFFSET_SE * speed, 0);
 }
+void go_north_hug_east(void)
+{
+    int speed = (int) (255.0 * SPEED_CONSTANT * COLLECT_CONSTANT);
+    set_speed(nw, OFFSET_NW * speed, 0);
+    set_speed(ne, OFFSET_NE * speed * COLLECT_HUG_CONSTANT, 0);
+    set_speed(sw, OFFSET_SW * -speed * COLLECT_HUG_CONSTANT, 0);
+    set_speed(se, OFFSET_SE * -speed, 0);
+}
 void go_south_east(void)
 {
     int speed = (int) (255.0 * SPEED_CONSTANT * COLLECT_CONSTANT);
@@ -128,10 +136,10 @@ void go_west(void)
 void go_north_west(void)
 {
   int speed = (int) (255.0 * SPEED_CONSTANT);
-  set_speed(nw, OFFSET_NW * speed*DIAG_CONSTANT, 0);
-  set_speed(ne, OFFSET_NE * speed, 0);
-  set_speed(sw, OFFSET_SW * -speed, 0);
-  set_speed(se, OFFSET_SE * -speed*DIAG_CONSTANT, 0);
+  set_speed(nw, OFFSET_NW * speed*DIAG_CONSTANT*1.2, 0); //front left
+  set_speed(ne, OFFSET_NE * speed, 0); //front right
+  set_speed(sw, OFFSET_SW * -speed, 0); //back left
+  set_speed(se, OFFSET_SE * -speed*DIAG_CONSTANT*1.2, 0); //bk eifht
 }
 void go_north_east(void)
 {
