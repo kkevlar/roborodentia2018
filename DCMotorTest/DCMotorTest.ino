@@ -107,7 +107,7 @@ void loop()
         go_west();
         if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
             panic();
-
+        go_stop();
         shoot_begin();
 //        go_stop();
 //        delay(250);
