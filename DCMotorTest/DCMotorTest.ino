@@ -115,19 +115,23 @@ void loop()
 //        go_north_east();
 //        delay(250);
 //        go_stop();        
-        delay(6000);        
 //        
 //
 //        go_north_west();
 //        if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
 //            panic();
 
-        shoot_stop();
+        
 
         go_south_west();
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
+
+        delay(3000);        
+        shoot_stop();
+
+
         go_north_east();
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
