@@ -17,7 +17,7 @@
 #define OFFSET_SW 1
 #define OFFSET_SE 1
 
-#define OFFSET_FLYWHEEL .66
+#define OFFSET_FLYWHEEL .60
 #define OFFSET_INDEXER .65
 #define SHOOT_UNJAM_CONSTANT -.5
 

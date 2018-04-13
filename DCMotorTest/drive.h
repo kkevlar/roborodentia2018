@@ -11,7 +11,7 @@
 #define HUG_CONSTANT .8
 #define COLLECT_HUG_CONSTANT .6
 #define DIAG_CONSTANT -0.22
-#define COLLECT_CONSTANT .55
+#define COLLECT_CONSTANT .60
 
 //#include "drivefuncs.h"
 void drive_setup(void);
