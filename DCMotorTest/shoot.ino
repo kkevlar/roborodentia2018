@@ -37,6 +37,19 @@ void simple_shoot(void)
   set_speed(motor_indexer, 0, 0);
 }
 
+void shoot_prepare(void)
+{
+  set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 0);
+  set_speed(motor_indexer,(int) (255.0 * OFFSET_INDEXER * SHOOT_UNJAM_CONSTANT), 0);
+}
+
+void shoot_begin(void)
+{
+  set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 0);
+  set_speed(motor_indexer, (int) (255.0 * OFFSET_INDEXER), 0);
+}
+
+
 void shoot_spin_up(void)
 {
   set_speed(motor_flywheel,(int) (255.0 * OFFSET_FLYWHEEL), 0);

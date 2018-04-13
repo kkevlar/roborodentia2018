@@ -7,11 +7,11 @@
 
 #include "wiring.h"
 
-#define SPEED_CONSTANT .8
+#define SPEED_CONSTANT 1
 #define HUG_CONSTANT .8
 #define COLLECT_HUG_CONSTANT .7
 #define DIAG_CONSTANT -0.22
-#define COLLECT_CONSTANT .8
+#define COLLECT_CONSTANT .55
 
 //#include "drivefuncs.h"
 void drive_setup(void);

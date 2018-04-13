@@ -61,6 +61,8 @@ void setup()
 
 #define PANIC_WAIT_TIME 30000
 
+int firstdrive = 1;
+
 void loop()
 {
     #ifdef MOTOR_TEST
@@ -98,11 +100,30 @@ void loop()
         go_north_west();
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
+
         go_stop();
+        shoot_prepare();
+        
         go_west();
         if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
             panic();
-        go_stop();
+
+        shoot_begin();
+//        go_stop();
+//        delay(250);
+//        shoot_begin();
+//        go_north_east();
+//        delay(250);
+//        go_stop();        
+        delay(6000);        
+//        
+//
+//        go_north_west();
+//        if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
+//            panic();
+
+        shoot_stop();
+
         go_south_west();
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
@@ -111,6 +132,7 @@ void loop()
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
+        
 //        delay(2000);
     #endif
 }
