@@ -109,10 +109,10 @@ void go_south_east(void)
 }
 void go_east(void)
 {
-    int speed = (int) (255.0 * SPEED_CONSTANT);
+    int speed = (int) (255.0 * SPEED_CONSTANT); //jank
     set_speed(nw, OFFSET_NW * speed, 0);
     set_speed(ne, OFFSET_NE * HUG_CONSTANT* -speed, 0);
-    set_speed(sw, OFFSET_SW * HUG_CONSTANT* speed, 0);
+    set_speed(sw, OFFSET_SW * HUG_CONSTANT* speed, 0);7
     set_speed(se, OFFSET_SE * -speed, 0);  
 }
 

@@ -98,11 +98,14 @@ void loop()
             panic();
         go_stop();
         go_north_west();
+
+        delay(1000);
+        shoot_prepare();
+
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
 
-        go_stop();
-        shoot_prepare();
+        go_stop();        
         
         go_west();
         if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
