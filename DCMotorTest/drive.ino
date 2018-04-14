@@ -107,27 +107,27 @@ void go_south_east(void)
     set_speed(sw, OFFSET_SW * speed, 0);
     set_speed(se, OFFSET_SE * speed * HUG_CONSTANT, 0);
 }
-void go_east(void)
+void go_east(float c)
 {
-    int speed = (int) (255.0 * SPEED_CONSTANT); //jank
+    int speed = (int) (255.0 * SPEED_CONSTANT * c);
     set_speed(nw, OFFSET_NW * speed, 0);
     set_speed(ne, OFFSET_NE * HUG_CONSTANT* -speed, 0);
-    set_speed(sw, OFFSET_SW * HUG_CONSTANT* speed, 0);7
+    set_speed(sw, OFFSET_SW * HUG_CONSTANT* speed, 0);
     set_speed(se, OFFSET_SE * -speed, 0);  
 }
 
 void go_east_first(void)
 {
-    int speed = (int) (140.0 * SPEED_CONSTANT);
+    int speed = (int) (255.0 * .5 * SPEED_CONSTANT);
     set_speed(nw, OFFSET_NW * speed, 0);
     set_speed(ne, OFFSET_NE *  -speed, 0);
     set_speed(sw, OFFSET_SW *  speed, 0);
     set_speed(se, OFFSET_SE * -speed, 0);  
 }
 
-void go_west(void)
+void go_west(float c)
 {
-  int speed = (int) (255.0 * SPEED_CONSTANT *.7); //jank
+  int speed = (int) (255.0 * SPEED_CONSTANT * c);
   set_speed(nw, OFFSET_NW * HUG_CONSTANT * -speed, 0);
   set_speed(ne, OFFSET_NE * speed, 0);
   set_speed(sw, OFFSET_SW * -speed, 0);

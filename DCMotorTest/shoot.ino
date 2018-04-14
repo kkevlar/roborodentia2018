@@ -58,8 +58,13 @@ void shoot_spin_up(void)
 
 void shoot_stop(void)
 {
+  #ifndef STRAT
   set_speed(motor_flywheel,(int) (0 * OFFSET_FLYWHEEL), 0);
   set_speed(motor_indexer, (int) (0 * OFFSET_INDEXER), 0);
+  #else
+  set_speed(motor_flywheel,(int) (.3 * OFFSET_FLYWHEEL), 0);
+  set_speed(motor_indexer, (int) (.3 * OFFSET_INDEXER), 0);
+  #endif
 }
 
 #endif

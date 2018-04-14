@@ -45,9 +45,11 @@ void setup()
     return;
     #endif
     go_stop();
-    #warning "ass"
-    delay(1000);
-    go_east_first();
+    while(digitalRead(SWITCH_PIN_NORTH) != LOW)
+    {
+      
+    }
+    go_east(.5);
     if(test_switch_east(10000) != SUCCESS)
         panic();
     go_north_hug_east();
@@ -72,7 +74,7 @@ void loop()
         delay(500);
         go_north();
         delay(500);
-        go_east();
+        go_east(1.0);
         delay(500);        
         go_south();        
         delay(500);
@@ -88,15 +90,27 @@ void loop()
    go_stop();
    return;
    #endif
-        go_east();
-        if(test_switch_east(PANIC_WAIT_TIME) != SUCCESS)
-            panic();
+        
+        go_east(.65); // Ramps down 
+        if(test_switch_east(10000) == SUCCESS)
+           panic();
         go_stop();
+        #ifdef STRAT
+        shoot_begin();
+        #endif
+        
+        
         go_south_east();
+        
         
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
+
+        #ifdef STRAT
+        shoot_stop();
+        #endif
+        
         go_north_west();
 
         delay(1000);
@@ -104,42 +118,39 @@ void loop()
 
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
-
-        go_stop();        
-        
-        go_west();
+        go_stop(); 
+        #ifdef DEFENSE
+           shoot_begin();
+           delay(3000);
+        #else 
+          shoot_begin();
+        #endif
+        go_west(.65);
         if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
             panic();
-        go_stop();
-        shoot_begin();
-//        go_stop();
-//        delay(250);
-//        shoot_begin();
-//        go_north_east();
-//        delay(250);
-//        go_stop();        
-//        
-//
-//        go_north_west();
-//        if(test_switch_west(PANIC_WAIT_TIME) != SUCCESS)
-//            panic();
-
-        
+        go_stop();     
 
         go_south_west();
         if(test_switch_south(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
 
-        delay(3000);        
+        #ifndef DEFENSE
+        delay(3000); 
+        #endif
+
         shoot_stop();
-
-
+        
         go_north_east();
         if(test_switch_north(PANIC_WAIT_TIME) != SUCCESS)
             panic();
         go_stop();
+
+        #ifdef STRAT
+        shoot_begin();
+        delay(1000);
+        shoot_stop();
+        #endif
         
-//        delay(2000);
     #endif
 }
